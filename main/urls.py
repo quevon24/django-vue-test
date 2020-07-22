@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from blog import views as blog_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # paths for our app
+    path('', blog_views.frontend),
+    path('article/<slug:slug>/', blog_views.frontend),
+    path('author/<slug:slug>/', blog_views.frontend),
 ]
